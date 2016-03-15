@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Oro prognozių tinklalapis!{% endblock %}
+
+{% block body %}
+
+<h3>{{ city }}, {{ country }}</h3>
+    <ul>
+        <li>Didžiausia temperatūra: <b>{{ temp_max }}°C</b></li>
+        <li>Dabartinė temperatūra: <b>{{ temp }}°C</b></li>
+        <li>Mažiausia temperatūra: <b>{{ temp_min }}°C</b></li>
+        <li>Drėgnumas: <b>{{ humidity }}%</b></li>
+        <li>Vėjo stiprumas: <b>{{ wind }}m/s</b></li>
+    </ul>
+{% endblock %}
