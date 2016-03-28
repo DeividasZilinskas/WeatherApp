@@ -4,7 +4,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "src/",
+            "Nfq\\WeatherBundle\\Utils\\": "Nfq/WeatherBundle/Utils/"
         },
         "classmap": [
             "app/AppKernel.php",
