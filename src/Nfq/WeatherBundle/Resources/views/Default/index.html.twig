@@ -3,12 +3,12 @@
 
 {% block body %}
 
-<h3>{{ city }}, {{ country }}</h3>
+<h3>{{ weather.cityName }}, {{ weather.country }}</h3>
     <ul>
-        <li>Didžiausia temperatūra: <b>{{ temp_max }}°C</b></li>
-        <li>Dabartinė temperatūra: <b>{{ temp }}°C</b></li>
-        <li>Mažiausia temperatūra: <b>{{ temp_min }}°C</b></li>
-        <li>Drėgnumas: <b>{{ humidity }}%</b></li>
-        <li>Vėjo stiprumas: <b>{{ wind }}m/s</b></li>
+        {#<li>Didžiausia temperatūra: <b>{{ temp_max }}°C</b></li>#}
+        <li>Dabartinė temperatūra: <b>{{ weather.temp }}°C</b></li>
+        {#<li>Mažiausia temperatūra: <b>{{ temp_min }}°C</b></li>#}
+        {#<li>Drėgnumas: <b>{{ humidity }}%</b></li>#}
+        <li>Vėjo stiprumas: <b>{{ weather.wind }}m/s</b></li>
     </ul>
 {% endblock %}

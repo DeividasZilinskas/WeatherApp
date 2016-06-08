@@ -24,6 +24,34 @@ class Configuration implements ConfigurationInterface
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
 
+        $rootNode
+            ->children()
+                ->scalarNode('provider')->isRequired()->end()
+                ->arrayNode('providers')
+                    ->children()
+                        ->arrayNode('openweather')
+                            ->children()
+                                ->scalarNode('api_key')->end()
+                            ->end()
+                        ->end()
+                        ->scalarNode('yahooweather')->end()
+                        ->arrayNode('delegating')
+                            ->children()
+                                ->arrayNode('providers')
+                                    ->prototype('scalar')->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('cached')
+                            ->children()
+                                ->scalarNode('provider')->isRequired()->end()
+                                ->integerNode('ttl')->isRequired()->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
+
         return $treeBuilder;
     }
 }

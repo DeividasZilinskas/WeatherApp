@@ -2,29 +2,28 @@
 
 namespace Nfq\WeatherBundle\Controller;
 
+use Nfq\WeatherBundle\Document\Location;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+/**
+ * Class DefaultController
+ * @package Nfq\WeatherBundle\Controller
+ */
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", defaults={"city" = "Vilnius"})
-     * @Route("/{city}")
+     * @Route("/{city}", defaults={"city" = "Vilnius"})
      * @param string $city
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction($city)
     {
-        $WeatherInfo = $this->get('app.weather')->getWeather($city);
+        $weatherLoader = $this->get('nfq_weather.provider');
+        $location = new Location();
+        $location->setCity($city);
+        $weather = $weatherLoader->getWeather($location);
 
-        return $this->render('WeatherBundle:Default:index.html.twig', [
-            'temp' => $WeatherInfo['main']['temp'],
-            'temp_min' => $WeatherInfo['main']['temp_min'],
-            'temp_max' => $WeatherInfo['main']['temp_max'],
-            'humidity' => $WeatherInfo['main']['humidity'],
-            'wind' => $WeatherInfo['wind']['speed'],
-            'city' => $WeatherInfo['name'],
-            'country' => $WeatherInfo['sys']['country']
-        ]);
+        return $this->render('WeatherBundle:Default:index.html.twig', ['weather' => $weather]);
     }
 }

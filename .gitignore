@@ -1,3 +1,14 @@
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+test/bower_components
+.babelrc
+.editorconfig
+.gitattributes
+.gitignore.swp
+.idea
 /web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
@@ -5,8 +16,5 @@
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
-/app/phpunit.xml
-/build/
 /vendor/
 /bin/
-/composer.phar

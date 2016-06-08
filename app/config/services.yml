@@ -7,6 +7,22 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-    app.weather:
-        class:        Nfq\WeatherBundle\Services\WeatherApi
-        arguments:    [%weather_api_key%]
+
+#    app.open_weather_api:
+#        class:        Nfq\WeatherBundle\API\OpenWeather
+#        arguments:    [%weather_api_key%]
+#
+#    nfq.weather:
+#        class:        Nfq\WeatherBundle\Services\WeatherLoader
+#        arguments:    ['@app.open_weather_api']
+#
+    app.yahoo_api:
+        class:        Nfq\WeatherBundle\Providers\YahooWeather
+#
+#    nfq.weather2:
+#        class:        Nfq\WeatherBundle\Services\WeatherLoader
+#        arguments:    ['@app.yahoo_api']
+
+    nfq_weather.provider.delegating:
+        class:        Nfq\WeatherBundle\Services\WeatherLoader
+        arguments:    ['%nfq_weather.delegating_providers%', '%ttl%', '%api_keys%']
