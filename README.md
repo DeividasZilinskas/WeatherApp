@@ -1,5 +1,4 @@
 #WeatherApp
-==========
 This App shows current temperature ant wind speed.
 ##Requirements:
 - [Requirements for Running Symfony 2.8](http://symfony.com/doc/2.8/reference/requirements.html)
