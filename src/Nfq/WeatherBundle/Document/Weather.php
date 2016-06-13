@@ -26,7 +26,7 @@ class Weather
      * @param float  $temp
      * @param float  $wind
      */
-    public function __construct(string $cityName, string $country, float $temp, float$wind)
+    public function __construct(string $cityName, string $country, float $temp, float $wind)
     {
         $this->cityName = $cityName;
         $this->country = $country;

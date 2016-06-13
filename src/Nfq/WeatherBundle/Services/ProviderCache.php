@@ -17,7 +17,7 @@ use Nfq\WeatherBundle\Document\Weather;
  */
 class ProviderCache
 {
-    const CACHE_LOCATION = '/tmp/ProviderCache.json';
+    const CACHE_LOCATION = 'cache/ProviderCache.json';
 
     private $provider;
     private $location;
@@ -105,9 +105,8 @@ class ProviderCache
             }
 
             if (strcasecmp($rowData['route'], $this->getLocation()->getCity()) == 0 &&
-                strcasecmp($this->getProvider(), $rowData['provider']) == 0 &&
-                (intval($rowData['issaugota']) + $this->getTtl()) >= $timeStamp->getTimestamp()) {
-                return new Weather($rowData['miestas'], $rowData['salis'], $rowData['temperatura'], $rowData['vejas']);
+                strcasecmp($this->getProvider(), $rowData['provider']) == 0) {
+                return new Weather($rowData['route'], $rowData['salis'], $rowData['temperatura'], $rowData['vejas']);
             }
         }
 

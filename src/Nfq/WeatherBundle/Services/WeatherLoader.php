@@ -43,8 +43,6 @@ class WeatherLoader
     {
         foreach ($this->weatherProviders as $provider) {
             $providerData = explode('\\', $provider);
-           // dump($providerData);
-            //exit;
             $providerObject = null;
             switch ($providerData[3]) {
                 case 'OpenWeather':
